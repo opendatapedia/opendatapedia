@@ -1,0 +1,7 @@
+# python requirements for OpenDataPedia
+jinja2
+json
+markdown
+typing
+unidecode
+yaml
