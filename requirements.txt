@@ -1,6 +1,6 @@
 # python requirements for OpenDataPedia
 jinja2
 markdown
+pyyaml
 typing
 unidecode
-yaml
