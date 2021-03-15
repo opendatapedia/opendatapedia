@@ -1,0 +1,89 @@
+<nav aria-label="breadcrumb">
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item">GEMAPI</li>
+    <li class="breadcrumb-item active" aria-current="page">France</li>
+    <li class="breadcrumb-item"><a href="gemapi_regions.html">Régions</a></li>
+    <li class="breadcrumb-item"><a href="gemapi_departements.html">Départements</a></li>
+    <li class="breadcrumb-item"><a href="gemapi_map.html">Cartes</a></li>
+  </ol>
+</nav>
+
+# Suivi de la structuration des compétences Gemapi
+
+Depuis le 1er janvier 2018, par l’effet de la loi MAPTAM  et de la loi
+NOTRe , l’exercice de la compétence « gestion des milieux aquatiques et
+prévention des inondations » (GEMAPI) est confié à titre obligatoire aux
+établissements publics de coopération intercommunale à fiscalité propre
+(EPCI-FP). Cette compétence comprend 4 des 12 missions définies aux I
+bis de l’article L. 211-7 du code de l’environnement :
+  * l’aménagement d’un bassin ou d’une fraction de bassin hydrographique (1°)
+  * l’entretien et l’aménagement d’un cours d’eau, canal, lac ou plan d’eau, y compris les accès (2°)
+  * la défense contre les inondations et contre la mer (5°)
+  * la protection et la restauration des sites, des écosystèmes aquatiques et des zones humides ainsi que des formations boisées riveraines (8°)
+
+La compétence GEMAPI vise à clarifier les responsabilités et les
+compétences et à consolider les liens entre gestion des milieux
+aquatiques et prévention des inondations, mais aussi à rapprocher ces
+politiques de celles de l’aménagement du territoire et de l’urbanisme,
+dont la compétence relève également du bloc communal.
+
+La loi du 30 décembre 2017 , relative à l’exercice des compétences des
+collectivités territoriales dans le domaine de la gestion des milieux
+aquatiques et de la prévention des inondations, a consolidé cette
+réforme structurante, tout en y apportant les nécessaires ajustements et
+souplesses pour permettre une mise en œuvre pragmatique et adaptée à la
+diversité des territoires. Dans ce cadre, le Parlement a demandé au
+Gouvernement qu’un premier bilan de la mise en œuvre de la compétence
+GEMAPI soit effectué. Ce rapport s’appuie sur une mission CGEDD-IGA et a
+été rendu en février 2019. Il indique que la prise de compétence GEMAPI
+se structure dans un climat de plus en plus apaisé, grâce aux
+ajustements et souplesses introduites par la loi du 30 décembre 2017.
+Les acteurs demandent globalement de ne plus modifier la loi, mais
+souhaitent un accompagnement dans la mise en œuvre de la GEMAPI. La
+mission IGA-CGEDD fait état d’une structuration de la gouvernance
+inégalement avancée sur les territoires, avec localement des situations
+où les discussions entre collectivités locales n’ont pas abouti à une
+structuration compatible avec les enjeux de la GEMAPI, au regard de la
+cohérence hydrographique et de la gouvernance dans la gestion des
+ouvrages de protection.
+
+La loi « Engagement et Proximité »  du 27 décembre 2019 apporte de
+nouveaux assouplissements, notamment afin de laisser jusqu’à fin 2021
+aux territoires pour mettre en place la structuration GEMAPI.
+
+Le cadre législatif est donc adaptatif pour permettre aux territoires de
+se structurer pour mettre en œuvre la compétence GEMAPI.
+
+Ces 4 missions peuvent être exercées indépendamment les unes des autres
+par une commune ou un EPCI-FP ou transférées ou déléguées en totalité ou
+partiellement à un syndicat mixte (de droit commun, EPAGE ou EPTB).
+
+<div align="center"><img src="img/banatic_categories_intercommunalite.jpg" /></div>
+<div align="center"><i>Source : <a href="https://www.banatic.interieur.gouv.fr/V5/accueil/index.php">banatic.interieur.gouv.fr</a></i></div>
+
+---
+
+## Répartition des intercommunalités par nature juridique en France
+
+*avec au moins une des quatre competences GEMAPI*
+
+{{ chart_bar_horizontal('banatic_competences_groupements_2020', field="nature_juridique", title="France - Répartition par nature juridique", match_any={'C1528':'1', 'C1529':'1', 'C1531':'1', 'C1532':'1'}) }}
+
+<table>
+<tr>
+<td>{{ chart_doughnut('banatic_competences_groupements_2020', field="competences_gemapi", 
+    chart_id=region~'SM', chart_title='SM', chart_height=200, chart_width=300, 
+    match_all={'intercommunalite_gemapi': 'SM'}, match_any={'C1528':'1', 'C1529':'1', 'C1531':'1', 'C1532':'1'}) }}</td>
+<td>{{ chart_doughnut('banatic_competences_groupements_2020', field="competences_gemapi", 
+    chart_id=region~'EPCI', chart_title='EPCI', chart_height=200, chart_width=300,
+    match_all={'intercommunalite_gemapi': 'EPCI'}, match_any={'C1528':'1', 'C1529':'1', 'C1531':'1', 'C1532':'1'}) }}</td>
+</tr>
+<tr>
+<td>{{ chart_doughnut('banatic_competences_groupements_2020', field="competences_gemapi", 
+    chart_id=region~'EPAGE', chart_title='EPAGE', chart_height=200, chart_width=300,
+    match_all={'intercommunalite_gemapi': 'EPAGE'}, match_any={'C1528':'1', 'C1529':'1', 'C1531':'1', 'C1532':'1'}) }}</td>
+<td>{{ chart_doughnut('banatic_competences_groupements_2020', field="competences_gemapi", 
+    chart_id=region~'EPTB', chart_title='EPTB', chart_height=200, chart_width=300,
+    match_all={'intercommunalite_gemapi': 'EPTB'}, match_any={'C1528':'1', 'C1529':'1', 'C1531':'1', 'C1532':'1'}) }}</td>
+</tr>
+</table>

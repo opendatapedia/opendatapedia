@@ -1,0 +1,61 @@
+<nav aria-label="breadcrumb">
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item">GEMAPI</li>
+    <li class="breadcrumb-item"><a href="gemapi_france.html">France</a></li>
+    <li class="breadcrumb-item active" aria-current="page">Régions</li>
+    <li class="breadcrumb-item"><a href="gemapi_departements.html">Départements</a></li>
+    <li class="breadcrumb-item"><a href="gemapi_map.html">Cartes</a></li>
+  </ol>
+</nav>
+
+# Suivi de la structuration des compétences Gemapi
+
+## Répartition des intercommunalités par nature juridique dans les Régions
+
+*avec au moins une des quatre competences GEMAPI*
+
+{% for region, value in dataset_field_values_count('banatic_competences_groupements_2020', "region_siege").items() %}
+
+{% set num_region, nom_region = region.split(' - ') %}
+### Région {{ nom_region }}
+
+{{ chart_bar_horizontal('banatic_competences_groupements_2020', field="nature_juridique", chart_id=nom_region~'_all',
+    title=nom_region~" - Répartition par nature juridique", match_all={'region_siege': region}, match_any={'C1528':'1', 'C1529':'1', 'C1531':'1', 'C1532':'1'}) }}
+
+<table>
+<tr>
+<td>{{ chart_doughnut('banatic_competences_groupements_2020', field="competences_gemapi", 
+    chart_id=region~'SM', chart_title='SM', chart_height=200, chart_width=300,
+    match_all={'region_siege': region, 'intercommunalite_gemapi': 'SM'}, match_any={'C1528':'1', 'C1529':'1', 'C1531':'1', 'C1532':'1'}) }}</td>
+<td>{{ chart_doughnut('banatic_competences_groupements_2020', field="competences_gemapi", 
+    chart_id=region~'EPCI', chart_title='EPCI', chart_height=200, chart_width=300,
+    match_all={'region_siege': region, 'intercommunalite_gemapi': 'EPCI'}, match_any={'C1528':'1', 'C1529':'1', 'C1531':'1', 'C1532':'1'}) }}</td>
+</tr>
+<tr>
+<td>{{ chart_doughnut('banatic_competences_groupements_2020', field="competences_gemapi", 
+    chart_id=region~'EPAGE', chart_title='EPAGE', chart_height=200, chart_width=300,
+    match_all={'region_siege': region, 'intercommunalite_gemapi': 'EPAGE'}, match_any={'C1528':'1', 'C1529':'1', 'C1531':'1', 'C1532':'1'}) }}</td>
+<td>{{ chart_doughnut('banatic_competences_groupements_2020', field="competences_gemapi", 
+    chart_id=region~'EPTB', chart_title='EPTB', chart_height=200, chart_width=300,
+    match_all={'region_siege': region, 'intercommunalite_gemapi': 'EPTB'}, match_any={'C1528':'1', 'C1529':'1', 'C1531':'1', 'C1532':'1'}) }}</td>
+</tr>
+</table>
+
+{% endfor %}
+
+## Incohérences du jeu de données
+
+<div class="alert alert-warning" role="alert">
+<table>
+<th><tr><td>Nom du Groupement</td><td>Intercommunalité exerçant la GEMAPI</td>
+<td>Competence 1</td><td>Competence 2</td><td>Competence 5</td><td>Competence 8</td></tr></th>
+{% for row in dataset_rows('banatic_competences_groupements_2020', match_all={'competences_gemapi': 'aucune'}, match_any={'intercommunalite_gemapi': 'EPAGE'}) %}
+<tr><td>{{ row['nom_groupement'] }}</td><td>{{ row['intercommunalite_gemapi'] }}</td>
+<td>{{ row['C1528'] }}</td><td>{{ row['C1529'] }}</td><td>{{ row['C1531'] }}</td><td>{{ row['C1532'] }}</td></tr>
+{% endfor %}
+{% for row in dataset_rows('banatic_competences_groupements_2020', match_all={'competences_gemapi': 'aucune'}, match_any={'intercommunalite_gemapi': 'EPTB'}) %}
+<tr><td>{{ row['nom_groupement'] }}</td><td>{{ row['intercommunalite_gemapi'] }}</td>
+<td>{{ row['C1528'] }}</td><td>{{ row['C1529'] }}</td><td>{{ row['C1531'] }}</td><td>{{ row['C1532'] }}</td></tr>
+{% endfor %}
+</table>
+</div>

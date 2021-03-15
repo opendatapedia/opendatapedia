@@ -1,0 +1,31 @@
+<nav aria-label="breadcrumb">
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item">GEMAPI</li>
+    <li class="breadcrumb-item"><a href="gemapi_france.html">France</a></li>
+    <li class="breadcrumb-item"><a href="gemapi_regions.html">Régions</a></li>
+    <li class="breadcrumb-item"><a href="gemapi_departements.html">Départements</a></li>
+    <li class="breadcrumb-item active" aria-current="page">Cartes</li>
+  </ol>
+</nav>
+
+## SM
+
+{{ map_choropleth('france_departements', 'banatic_competences_groupements_2020', field="nom_departement", chart_id='SM', match_all={'intercommunalite_gemapi': 'SM'}, match_any={'C1528':'1', 'C1529':'1', 'C1531':'1', 'C1532':'1'}) }}
+
+---
+
+## EPCI
+
+{{ map_choropleth('france_departements', 'banatic_competences_groupements_2020', field="nom_departement", chart_id='EPCI', match_all={'intercommunalite_gemapi': 'EPCI'}, match_any={'C1528':'1', 'C1529':'1', 'C1531':'1', 'C1532':'1'}) }}
+
+---
+
+## EPAGE
+
+{{ map_choropleth('france_departements', 'banatic_competences_groupements_2020', field="nom_departement", chart_id='EPAGE', match_all={'intercommunalite_gemapi': 'EPAGE'}, match_any={'C1528':'1', 'C1529':'1', 'C1531':'1', 'C1532':'1'}) }}
+
+---
+
+## EPTB
+
+{{ map_choropleth('france_departements', 'banatic_competences_groupements_2020', field="nom_departement", chart_id='EPTB', match_all={'intercommunalite_gemapi': 'EPTB'}, match_any={'C1528':'1', 'C1529':'1', 'C1531':'1', 'C1532':'1'}) }}
